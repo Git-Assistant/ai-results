@@ -1,1 +1,32 @@
 <!DOCTYPE html>
+<!-- Here is the html, javascript and css code for a calendar for the year of 2023 using the bootstrap framework. -->
+<html>
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+
+        <!-- As we have a calendar built in php and the first bit of code to be read and executed is the html on top. We have to place our php snippet into a php echo function as we can't mix it up in our html. This obv needs to be put in a div class so we can style it.-->
+
+        <div class="headings text-center my-3">
+            <h3 class="headings">Simple Yearly Calendar 23</h3>
+            <h6>Concept showing how we could use the php calendar snippet.</h6>
+        </div>
+        <?php
+            // We want to make sure that the calendar displays itself within the current year, so we make use of the setting file and create variables for current month and current year.
+            $currentMonth = date("month");
+            $currentYear = date("year");
+            // Then we add in a loop that starts from january to december using the inbuilt php date format.
+            foreach($currentYear as $year){
+
+            }
+
+        ?>
+
+
+
+        </div>
+
+    </body>
+</html>
