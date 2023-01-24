@@ -64,3 +64,43 @@
             
             // Set the headers
             if (headers) xhr.
+//Please continue the above script to make a calendar in pure javascript, thank you for your time, here is the link to the script in stackoverflow and here is the full script:
+//---------------------------------------------------------------------------------------------------
+
+
+//I am trying to make a calendar, I have a local backup but I have this problem and I hope for a proper solution for it, I am quite new to pure javascript
+function efu() {
+            var square = document.getElementById("build_calendar");
+                let enter = '<div id= "calendar_container" >';
+                square.innerHTML = enter;
+            const
+            dates   = document.getElementById('date'),
+            counter = document.getElementById('day'),
+            next  = document.getElementById('next'),
+            back = document.getElementById('back'),
+            details = document.getElementById('details'),
+            todo_URI  = 'http://localhost/edit/calendar/todos',
+            jqa       = (querySelector) => document.querySelectorAll(querySelector),
+            hours     = [ {hour:["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM"]} ,
+                         {hour:["12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"]} ];
+            var
+            year=2017,
+            month=8,
+            day=15;
+            var
+            clicks = 3,
+            day = 1,
+            todo;
+            
+            function write(month,day) {
+                    month = month >= 10 ? month : '0' + month;
+                    day = day >= 10 ? day : '0' + day;
+                    return `${year}-${month}-${day}`;    
+                }
+                write();
+            
+            let date = write(month, day),
+                date_n = timeAdd(date, 1, "day"),
+                date_p = timeAdd(date, -1, "day"),
+                aa = daysInMonth(month, day);
+            
