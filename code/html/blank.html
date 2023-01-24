@@ -1,1 +1,66 @@
 <!DOCTYPE html>
+<!-- Here is the html, javascript and css code for a todo app written in pure vanilla js -->
+<!--  It also uses XHR requests insetad of a backend: in theory, one could only need to load this -->
+<!--  one file when opening a new tab to use the app  -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pure Javascript ToDo</title>
+    <style>
+    #list {
+        width: 250px;
+        background-color: rgba(255, 255, 255, 0.25);
+        padding: 40px;
+        font-size: 16pt;
+    }
+
+    #list p { margin: 0;}
+    body {
+        margin: 0;
+    }
+    </style>
+
+</head>
+
+<html>
+<body>
+    <div id="list">
+        
+    </div>
+
+    <script>
+        "use strict";
+        
+        const
+        URL         = 'http://localhost:3000/todos',
+        TODOS_LIST  = document.getElementById('list'),
+        jq          = (querySelector) => document.querySelector(querySelector),
+        jqa         = (querySelector) => document.querySelectorAll(querySelector),
+        throttle    = (callback, limit) => {
+            let wait = true;
+            return () => {
+                if (!wait) {
+                    callback();
+                    wait = true;
+                    setTimeout(() => {
+                        wait = false;
+                    }, limit);
+                }
+            };
+        },
+        req         = (uri, type="get", data=false, headers={'Content-Type': 'application/json; charser=UTF-8'} , callback=()=>{}) => {
+            
+            // open the connection
+            let xhr = new XMLHttpRequest();
+            xhr.open(type, uri, true);
+            
+            // Check the status of the request and headers
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState != 4 || xhr.status != 200) return;
+                callback(xhr.responseText);
+                xhr = null;
+            };
+            
+            // Set the headers
+            if (headers) xhr.
